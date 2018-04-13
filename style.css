@@ -3,9 +3,59 @@
     padding: 0;
 }
 
+#wrapper {
+    max-width: 90%;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
 header {
     background-color: rgb(78, 78, 78);
     color: #fff;
     text-align: center;
-    padding: 30px 0;
+    padding: 40px 0;
+}
+
+#inputDiv {
+    text-align: center;
+}
+
+#inputDiv input {
+    width: 15%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#submitButton {
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    display: block;
+}
+
+table {
+    width: 75%;
+    align-content: center;
+    border-collapse: collapse;
+    margin: 30px auto 0 auto;
+    font-size: 1.25em;
+}
+
+th {
+    background-color: rgb(134, 134, 134);
+}
+
+td,
+th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px;
+}
+
+#monthlyCost {
+    font-size: 2em;
+    text-align: right;
+    margin-top: 25px;
 }
