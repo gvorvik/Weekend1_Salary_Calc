@@ -32,7 +32,7 @@ function submitButtonClick() {
         <td>$${$salary.val()}</td>
         </tr>`);
     
-    //
+    //Update the monthly cost
     appendSalary();
 
     //Reset the values in the inputs
@@ -41,12 +41,11 @@ function submitButtonClick() {
     $id.val('');
     $title.val('');
     $salary.val('');
-    
-    console.log(cost);
 }//End submitButtonClick
 
 function appendSalary() {
     let $salary = $('#salaryInput');
-    cost += parseInt($salary.val())/12;
-    $('#monthlyCost').text(`Total Monthly: $${cost}`);
-}
+    let monthlyCost = parseFloat($salary.val()/12);
+    cost += monthlyCost
+    $('#monthlyCost').text(`Total Monthly: $${cost.toFixed(2)}`);
+}//end appendSalary
