@@ -43,9 +43,12 @@ function submitButtonClick() {
     $salary.val('');
 }//End submitButtonClick
 
+//Function to put correct salary number under Monthly Cost and append to DOM
 function appendSalary() {
-    let $salary = $('#salaryInput');
-    let monthlyCost = parseFloat($salary.val()/12);
-    cost += monthlyCost
+    let monthlyCost = parseFloat($('#salaryInput').val()/12);
+    cost += monthlyCost;
+    if (cost > 20000) {
+        $('#monthlyCost').css('color', 'red');
+    }
     $('#monthlyCost').text(`Total Monthly: $${cost.toFixed(2)}`);
 }//end appendSalary
