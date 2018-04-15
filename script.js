@@ -7,6 +7,7 @@ $(document).ready(onReady);
 function onReady() {
     console.log('JQuery Sourced');
     $('#submitButton').on('click', submitButtonClick);
+    $('#deleteButton').on('click', deleteEmployee);
 }
 
 function submitButtonClick() {
@@ -52,3 +53,8 @@ function appendSalary() {
     }
     $('#monthlyCost').text(`Total Monthly: $${cost.toFixed(2)}`);
 }//end appendSalary
+
+//Function to delete last employee
+function deleteEmployee() {
+    $('tbody').children().last().remove();
+}
