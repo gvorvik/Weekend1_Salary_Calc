@@ -1,6 +1,7 @@
 console.log('ScriptJS Sourced');
 //Set Monthly Cost
 let cost = 0;
+const MONTHLY_COST_CAP = 20000;
 
 //Setup for array of each employee added to DOM
 let employees = [];
@@ -10,12 +11,12 @@ class Employee {
         this.lastName = last;
         this.id = id;
         this.title = title;
-        this.salary = salary;
+        this.salary = parseInt(salary);
     }
 }
 
+//Function that runs when doc is ready
 $(document).ready(onReady);
-
 
 
 //Functions To Be Hoisted
@@ -24,8 +25,9 @@ function onReady() {
     console.log('JQuery Sourced');
     $('#submitButton').on('click', submitButtonClick);
     $('#deleteButton').on('click', deleteEmployee);
-}
+}//end onReady
 
+//Function to submit employee and append onto the DOM
 function submitButtonClick() {
     //Set variables for inputs
     let $first = $('#firstNameInput');
@@ -49,6 +51,9 @@ function submitButtonClick() {
         <td>$${$salary.val()}</td>
         </tr>`);
     
+    console.log($salary.val());
+    
+
     //Update the monthly cost
     appendSalary();
 
@@ -57,18 +62,15 @@ function submitButtonClick() {
     employees.push(employee);
 
     //Reset the values in the inputs
-    $first.val('');
-    $last.val('');
-    $id.val('');
-    $title.val('');
-    $salary.val('');
+    $('input').val('');
+
 }//End submitButtonClick
 
 //Function to put correct salary number under Monthly Cost and append to DOM
 function appendSalary() {
     let monthlyCost = parseFloat($('#salaryInput').val()/12);
     cost += monthlyCost;
-    if (cost > 20000) {
+    if (cost > MONTHLY_COST_CAP) {
         $('#monthlyCost').css('color', 'red');
     }
     $('#monthlyCost').text(`Total Monthly: $${cost.toFixed(2)}`);
